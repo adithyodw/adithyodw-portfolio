@@ -12,7 +12,7 @@ const onest = Onest({
   display: "swap",
 })
 
-const baseUrl = "https://adithyodw.vercel.app"
+const baseUrl = "https://adithyodw-portfolio.vercel.app"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
