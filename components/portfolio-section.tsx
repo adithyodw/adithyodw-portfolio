@@ -280,6 +280,39 @@ export function PortfolioSection() {
           ))}
         </div>
 
+        {/* ── Bali Market Promo ── */}
+        <div className="my-4 bg-[#FFC224] border-[3px] border-black rounded-[32px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-4xl">🌴</span>
+              <span className="text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1.5 rounded-full">
+                Bali Market
+              </span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-[#0B0B0B] mb-2 leading-tight">
+              Also building websites for<br className="hidden md:block" /> Bali's local businesses.
+            </h3>
+            <p className="text-[#393939] text-base font-medium max-w-lg mb-5 leading-relaxed">
+              Dedicated bilingual (ID/EN) web service for Bali's market — F&B, laundry, hotels, villas, clinics & SMEs. Pricing from Rp 1 juta (~$60).
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["8+ Bali Projects", "ID/EN Bilingual", "From Rp 1 juta", "WhatsApp-optimised", "Next.js + Vercel"].map((tag) => (
+                <span key={tag} className="bg-black text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <a href="/bali" className="flex-shrink-0 w-full md:w-auto">
+            <button className="w-full md:w-auto bg-black text-white px-8 py-5 rounded-[14px] font-bold text-base hover:bg-gray-900 transition-colors flex items-center justify-center gap-2 border-[3px] border-black whitespace-nowrap">
+              View Bali Portfolio
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </a>
+        </div>
+
         {/* ── Client Work ── */}
         <div>
           {/* Sub-heading */}

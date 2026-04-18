@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { BaliNav } from "./bali-nav"
 import { BaliHero } from "./bali-hero"
+import { BaliValue } from "./bali-value"
 import { BaliMarquee } from "./bali-marquee"
 import { BaliServices } from "./bali-services"
 import { BaliTech } from "./bali-tech"
@@ -24,6 +25,7 @@ export function BaliPageContent() {
         <BaliNav lang={lang} setLang={setLang} />
         <BaliHero lang={lang} />
       </div>
+      <BaliValue lang={lang} />
       <BaliMarquee />
       <div id="layanan">
         <BaliServices lang={lang} />

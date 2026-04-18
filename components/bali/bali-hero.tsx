@@ -4,29 +4,51 @@ import Image from "next/image"
 import { waLink } from "./bali-nav"
 import type { Lang } from "./bali-page"
 
-const content = {
+interface Content {
+  eyebrow: string
+  line1: string
+  accent: string
+  line2: string
+  subtitle: string
+  badges: string[]
+  cta1: string
+  cta2: string
+  waMsg: string
+}
+
+const content: Record<Lang, Content> = {
   id: {
-    eyebrow: "Web Developer & Konsultan Digital untuk Bisnis Bali",
-    line1: "Website Profesional untuk",
-    accent1: "Bisnis Bali",
-    line2: "dari",
-    accent2: "Indonesia",
+    eyebrow: "Web Developer untuk Bisnis Lokal Bali",
+    line1: "Dapatkan Lebih Banyak",
+    accent: "Booking & Pelanggan",
+    line2: "via Google & WhatsApp.",
     subtitle:
-      "Dari laundry hingga villa mewah — saya bantu bisnis Anda tampil profesional di internet dan mendapatkan lebih banyak pelanggan.",
-    cta1: "Konsultasi Gratis via WhatsApp",
+      "Kebanyakan pemilik bisnis Bali tidak punya waktu atau keahlian teknis untuk urus website. Kami yang handle semuanya — dari desain, coding, sampai live di Google. Anda fokus ke bisnis.",
+    badges: [
+      "✓ Konsultasi gratis",
+      "✓ Live dalam 7–14 hari",
+      "✓ Mulai Rp 1 juta",
+      "✓ 8+ bisnis Bali",
+    ],
+    cta1: "Chat WhatsApp Sekarang",
     cta2: "Lihat Portfolio",
     waMsg:
       "Halo Adithyo, saya tertarik konsultasi gratis untuk website bisnis saya di Bali.",
   },
   en: {
-    eyebrow: "Web Developer & Digital Consultant for Bali Businesses",
-    line1: "Professional Websites for",
-    accent1: "Bali Businesses",
-    line2: "from",
-    accent2: "Indonesia",
+    eyebrow: "Web Developer for Bali Local Businesses",
+    line1: "Get More",
+    accent: "Bookings & Customers",
+    line2: "via Google & WhatsApp.",
     subtitle:
-      "From laundry shops to luxury villas — I help your Bali business look world-class online and attract more customers.",
-    cta1: "Free Consultation on WhatsApp",
+      "Most Bali business owners don't have time or technical knowledge to manage a website. We handle everything — design, coding, live on Google. You focus on running your business.",
+    badges: [
+      "✓ Free consultation",
+      "✓ Live in 7–14 days",
+      "✓ From Rp 1 million",
+      "✓ 8+ Bali businesses",
+    ],
+    cta1: "Chat WhatsApp Now",
     cta2: "View Portfolio",
     waMsg:
       "Hello Adithyo, I'd like a free consultation for my Bali business website.",
@@ -37,28 +59,38 @@ export function BaliHero({ lang }: { lang: Lang }) {
   const t = content[lang]
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section className="container mx-auto px-4 py-14 md:py-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <p className="text-sm font-bold text-[#6366F1] uppercase tracking-widest">
             {t.eyebrow}
           </p>
-          <h1 className="text-[38px] leading-[48px] md:text-[66px] font-bold md:leading-[78px]">
+
+          <h1 className="text-[38px] leading-[48px] md:text-[62px] font-bold md:leading-[74px]">
             {t.line1}{" "}
             <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">
-              {t.accent1}
+              {t.accent}
             </span>{" "}
-            {t.line2}{" "}
-            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">
-              {t.accent2}
-            </span>
+            <span className="text-[#0B0B0B]">{t.line2}</span>
           </h1>
 
           <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl">
             {t.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 pt-4">
+          {/* Social proof badges */}
+          <div className="flex flex-wrap gap-2 pt-1">
+            {t.badges.map((b, i) => (
+              <span
+                key={i}
+                className="bg-white border-2 border-black text-[#0B0B0B] text-sm font-bold px-4 py-2 rounded-full"
+              >
+                {b}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-2">
             <a
               href={waLink(t.waMsg)}
               target="_blank"
