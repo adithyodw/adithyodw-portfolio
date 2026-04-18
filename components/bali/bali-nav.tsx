@@ -2,8 +2,7 @@ import { Mail, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Lang } from "./bali-page"
 
-// TODO: Replace with your actual WhatsApp number
-export const WA_NUMBER = "6281234567890"
+export const WA_NUMBER = "6590616870"
 export const waLink = (msg: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
 
 interface Props {
