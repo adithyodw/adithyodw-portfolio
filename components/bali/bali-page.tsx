@@ -5,7 +5,9 @@ import { BaliNav } from "./bali-nav"
 import { BaliHero } from "./bali-hero"
 import { BaliMarquee } from "./bali-marquee"
 import { BaliServices } from "./bali-services"
+import { BaliTech } from "./bali-tech"
 import { BaliIndustries } from "./bali-industries"
+import { BaliPricing } from "./bali-pricing"
 import { BaliPortfolio } from "./bali-portfolio"
 import { BaliCta } from "./bali-cta"
 import { BaliFooter } from "./bali-footer"
@@ -26,8 +28,14 @@ export function BaliPageContent() {
       <div id="layanan">
         <BaliServices lang={lang} />
       </div>
+      <div id="teknologi">
+        <BaliTech lang={lang} />
+      </div>
       <div id="industri">
         <BaliIndustries lang={lang} />
+      </div>
+      <div id="harga">
+        <BaliPricing lang={lang} />
       </div>
       <div id="portfolio">
         <BaliPortfolio lang={lang} />

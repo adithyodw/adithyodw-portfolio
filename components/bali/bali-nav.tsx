@@ -15,13 +15,15 @@ export function BaliNav({ lang, setLang }: Props) {
     lang === "id"
       ? [
           { label: "Layanan", href: "#layanan" },
-          { label: "Industri", href: "#industri" },
+          { label: "Teknologi", href: "#teknologi" },
+          { label: "Harga", href: "#harga" },
           { label: "Portfolio", href: "#portfolio" },
           { label: "Kontak", href: "#kontak" },
         ]
       : [
           { label: "Services", href: "#layanan" },
-          { label: "Industries", href: "#industri" },
+          { label: "Technology", href: "#teknologi" },
+          { label: "Pricing", href: "#harga" },
           { label: "Portfolio", href: "#portfolio" },
           { label: "Contact", href: "#kontak" },
         ]

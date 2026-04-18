@@ -19,6 +19,8 @@ const content: Record<Lang, Content> = {
     links: [
       { label: "Beranda", href: "#top" },
       { label: "Layanan", href: "#layanan" },
+      { label: "Teknologi", href: "#teknologi" },
+      { label: "Harga", href: "#harga" },
       { label: "Industri", href: "#industri" },
       { label: "Portfolio", href: "#portfolio" },
       { label: "Kontak", href: "#kontak" },
@@ -34,6 +36,8 @@ const content: Record<Lang, Content> = {
     links: [
       { label: "Home", href: "#top" },
       { label: "Services", href: "#layanan" },
+      { label: "Technology", href: "#teknologi" },
+      { label: "Pricing", href: "#harga" },
       { label: "Industries", href: "#industri" },
       { label: "Portfolio", href: "#portfolio" },
       { label: "Contact", href: "#kontak" },
