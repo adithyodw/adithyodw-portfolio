@@ -1,4 +1,4 @@
-import { MessageCircle, FolderOpen } from "lucide-react"
+import { MessageCircle, FolderOpen, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { waLink } from "./bali-nav"
@@ -25,10 +25,10 @@ const content: Record<Lang, Content> = {
     subtitle:
       "Kebanyakan pemilik bisnis Bali tidak punya waktu atau keahlian teknis untuk urus website. Kami yang handle semuanya — dari desain, coding, sampai live di Google. Anda fokus ke bisnis.",
     badges: [
-      "✓ Konsultasi gratis",
-      "✓ Live dalam 7–14 hari",
-      "✓ Mulai Rp 1 juta",
-      "✓ 8+ bisnis Bali",
+      "Konsultasi gratis",
+      "Live dalam 7–14 hari",
+      "Mulai Rp 1 juta",
+      "8+ bisnis Bali",
     ],
     cta1: "Chat WhatsApp Sekarang",
     cta2: "Lihat Portfolio",
@@ -43,10 +43,10 @@ const content: Record<Lang, Content> = {
     subtitle:
       "Most Bali business owners don't have time or technical knowledge to manage a website. We handle everything — design, coding, live on Google. You focus on running your business.",
     badges: [
-      "✓ Free consultation",
-      "✓ Live in 7–14 days",
-      "✓ From Rp 1 million",
-      "✓ 8+ Bali businesses",
+      "Free consultation",
+      "Live in 7–14 days",
+      "From Rp 1 million",
+      "8+ Bali businesses",
     ],
     cta1: "Chat WhatsApp Now",
     cta2: "View Portfolio",
@@ -83,8 +83,9 @@ export function BaliHero({ lang }: { lang: Lang }) {
             {t.badges.map((b, i) => (
               <span
                 key={i}
-                className="bg-white border-2 border-black text-[#0B0B0B] text-sm font-bold px-4 py-2 rounded-full"
+                className="bg-white border-2 border-black text-[#0B0B0B] text-sm font-bold px-4 py-2 rounded-full flex items-center gap-1.5"
               >
+                <Check className="w-3.5 h-3.5 flex-shrink-0" />
                 {b}
               </span>
             ))}

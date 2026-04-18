@@ -1,7 +1,9 @@
+import { Code2, GitBranch, Zap, X, Check, type LucideIcon } from "lucide-react"
 import type { Lang } from "./bali-page"
 
+const PILLAR_ICONS: LucideIcon[] = [Code2, GitBranch, Zap]
+
 interface Pillar {
-  icon: string
   title: string
   desc: string
   badge: string
@@ -30,21 +32,18 @@ const content: Record<Lang, Content> = {
       "Website Anda dibangun dengan React.js — teknologi yang sama dipakai Netflix, Airbnb, dan ribuan startup global. Bukan WordPress. Bukan template. Bukan copy-paste.",
     pillars: [
       {
-        icon: "⚛️",
         title: "React.js & Next.js 15",
         desc: "Framework modern terdepan yang dipakai industri global. Server-side rendering, static generation, dan App Router — hasil akhirnya website yang cepat, SEO-friendly, dan bisa scale.",
         badge: "Industry Standard",
         color: "#2F81F7",
       },
       {
-        icon: "🐙",
         title: "GitHub Workflow",
         desc: "Setiap baris kode disimpan di GitHub dan sepenuhnya milik Anda. Version control penuh, riwayat perubahan transparan, dan tidak pernah terkunci ke vendor manapun.",
         badge: "Code Ownership",
         color: "#6366F1",
       },
       {
-        icon: "▲",
         title: "Deploy via Vercel",
         desc: "CDN global Vercel memastikan website Anda loading di bawah 1 detik dari mana saja — Bali, Jakarta, Singapore, maupun Tokyo. Free SSL, uptime 99.99%, Lighthouse 90+.",
         badge: "< 1 Detik Loading",
@@ -53,7 +52,7 @@ const content: Record<Lang, Content> = {
     ],
     vsHeading: "WordPress vs Modern Tech Stack",
     vsLeft: {
-      label: "❌ WordPress / CMS Biasa",
+      label: "WordPress / CMS Biasa",
       items: [
         "Plugin berbayar setiap bulan",
         "Rentan hack & malware",
@@ -65,7 +64,7 @@ const content: Record<Lang, Content> = {
       ],
     },
     vsRight: {
-      label: "✅ Tech Stack Kami",
+      label: "Tech Stack Kami",
       items: [
         "Bayar sekali, tidak ada biaya bulanan",
         "Code bersih, aman, tidak ada celah plugin",
@@ -87,21 +86,18 @@ const content: Record<Lang, Content> = {
       "Your website is built with React.js — the same technology used by Netflix, Airbnb, and thousands of global startups. Not WordPress. Not templates. Not copy-paste.",
     pillars: [
       {
-        icon: "⚛️",
         title: "React.js & Next.js 15",
         desc: "The leading modern framework used across the global industry. Server-side rendering, static generation, and App Router — the result is a fast, SEO-optimised, and scalable website.",
         badge: "Industry Standard",
         color: "#2F81F7",
       },
       {
-        icon: "🐙",
         title: "GitHub Workflow",
         desc: "Every line of code lives in GitHub and belongs entirely to you. Full version control, transparent change history, and never locked into any vendor.",
         badge: "Code Ownership",
         color: "#6366F1",
       },
       {
-        icon: "▲",
         title: "Deploy via Vercel",
         desc: "Vercel's global CDN ensures your website loads under 1 second from anywhere — Bali, Jakarta, Singapore, or Tokyo. Free SSL, 99.99% uptime, Lighthouse 90+.",
         badge: "< 1s Load Time",
@@ -110,7 +106,7 @@ const content: Record<Lang, Content> = {
     ],
     vsHeading: "WordPress vs Modern Tech Stack",
     vsLeft: {
-      label: "❌ WordPress / Basic CMS",
+      label: "WordPress / Basic CMS",
       items: [
         "Monthly plugin subscription fees",
         "Vulnerable to hacks & malware",
@@ -122,7 +118,7 @@ const content: Record<Lang, Content> = {
       ],
     },
     vsRight: {
-      label: "✅ Our Tech Stack",
+      label: "Our Tech Stack",
       items: [
         "One-time payment, zero monthly fees",
         "Clean, secure code — no plugin exploits",
@@ -175,25 +171,30 @@ export function BaliTech({ lang }: { lang: Lang }) {
 
           {/* 3 Pillars */}
           <div className="grid md:grid-cols-3 gap-6 mb-14">
-            {t.pillars.map((p, i) => (
-              <div
-                key={i}
-                className="bg-white border-[3px] border-black rounded-[28px] overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300"
-              >
-                <div className="h-2" style={{ backgroundColor: p.color }} />
-                <div className="p-7">
-                  <div className="text-4xl mb-4">{p.icon}</div>
-                  <span
-                    className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 border-2 border-black"
-                    style={{ backgroundColor: p.color, color: "#FFFFFF" }}
-                  >
-                    {p.badge}
-                  </span>
-                  <h3 className="text-xl font-bold mb-3 text-[#0B0B0B]">{p.title}</h3>
-                  <p className="text-[15px] leading-[24px] text-[#393939] font-medium">{p.desc}</p>
+            {t.pillars.map((p, i) => {
+              const Icon = PILLAR_ICONS[i]
+              return (
+                <div
+                  key={i}
+                  className="bg-white border-[3px] border-black rounded-[28px] overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300"
+                >
+                  <div className="h-2" style={{ backgroundColor: p.color }} />
+                  <div className="p-7">
+                    <div className="mb-4">
+                      <Icon className="w-9 h-9" style={{ color: p.color }} />
+                    </div>
+                    <span
+                      className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 border-2 border-black"
+                      style={{ backgroundColor: p.color, color: "#FFFFFF" }}
+                    >
+                      {p.badge}
+                    </span>
+                    <h3 className="text-xl font-bold mb-3 text-[#0B0B0B]">{p.title}</h3>
+                    <p className="text-[15px] leading-[24px] text-[#393939] font-medium">{p.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* Comparison */}
@@ -202,13 +203,14 @@ export function BaliTech({ lang }: { lang: Lang }) {
             <div className="grid md:grid-cols-2 gap-4">
               {/* Left — WordPress */}
               <div className="bg-white border-[3px] border-black rounded-[24px] overflow-hidden">
-                <div className="bg-[#FEE2E2] border-b-[3px] border-black px-6 py-3">
+                <div className="bg-[#FEE2E2] border-b-[3px] border-black px-6 py-3 flex items-center gap-2">
+                  <X className="w-4 h-4 text-[#991B1B] flex-shrink-0" />
                   <span className="font-bold text-[#991B1B] text-sm">{t.vsLeft.label}</span>
                 </div>
                 <ul className="px-6 py-5 space-y-3">
                   {t.vsLeft.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-[#393939] font-medium">
-                      <span className="text-[#EF4444] mt-0.5 flex-shrink-0">✗</span>
+                      <X className="w-4 h-4 text-[#EF4444] mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -217,13 +219,14 @@ export function BaliTech({ lang }: { lang: Lang }) {
 
               {/* Right — Our Stack */}
               <div className="bg-white border-[3px] border-black rounded-[24px] overflow-hidden">
-                <div className="bg-[#DCFCE7] border-b-[3px] border-black px-6 py-3">
+                <div className="bg-[#DCFCE7] border-b-[3px] border-black px-6 py-3 flex items-center gap-2">
+                  <Check className="w-4 h-4 text-[#166534] flex-shrink-0" />
                   <span className="font-bold text-[#166534] text-sm">{t.vsRight.label}</span>
                 </div>
                 <ul className="px-6 py-5 space-y-3">
                   {t.vsRight.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-[#393939] font-medium">
-                      <span className="text-[#16A34A] mt-0.5 flex-shrink-0">✓</span>
+                      <Check className="w-4 h-4 text-[#16A34A] mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
                   ))}

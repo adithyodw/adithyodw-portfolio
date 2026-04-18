@@ -1,4 +1,4 @@
-import { Check, MessageCircle } from "lucide-react"
+import { Check, MessageCircle, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { waLink } from "./bali-nav"
 import type { Lang } from "./bali-page"
@@ -10,7 +10,6 @@ interface PkgFeature {
 
 interface Package {
   name: string
-  emoji: string
   tagline: string
   idr: string
   usd: string
@@ -39,12 +38,11 @@ const content: Record<Lang, Content> = {
     highlight: "Transparan & Jelas",
     subtitle:
       "Tidak ada biaya tersembunyi. Tidak ada langganan bulanan. Bayar sekali, website Anda hidup selamanya.",
-    popularBadge: "⭐ Paling Populer",
+    popularBadge: "Paling Populer",
     deliveryLabel: "Estimasi pengerjaan",
     packages: [
       {
         name: "Paket Starter",
-        emoji: "🚀",
         tagline: "Cocok untuk bisnis yang baru mau go online",
         idr: "Rp 1 – 2 juta",
         usd: "~$60 – $120",
@@ -67,7 +65,6 @@ const content: Record<Lang, Content> = {
       },
       {
         name: "Paket Standard",
-        emoji: "💼",
         tagline: "Ideal untuk bisnis yang butuh tampilan lengkap & profesional",
         idr: "Rp 3 – 5 juta",
         usd: "~$180 – $300",
@@ -92,7 +89,6 @@ const content: Record<Lang, Content> = {
       },
       {
         name: "Paket Custom",
-        emoji: "⚙️",
         tagline: "Untuk bisnis dengan kebutuhan sistem & fitur khusus",
         idr: "Mulai dari Rp 8 juta",
         usd: "~from $500",
@@ -116,19 +112,18 @@ const content: Record<Lang, Content> = {
       },
     ],
     note:
-      "💡 Semua paket termasuk domain & hosting konsultasi setup. Harga dapat berubah tergantung kompleksitas proyek.",
+      "Semua paket termasuk domain & hosting konsultasi setup. Harga dapat berubah tergantung kompleksitas proyek.",
   },
   en: {
     heading: "Transparent",
     highlight: "Pricing",
     subtitle:
       "No hidden fees. No monthly subscriptions. Pay once, your website lives forever.",
-    popularBadge: "⭐ Most Popular",
+    popularBadge: "Most Popular",
     deliveryLabel: "Estimated delivery",
     packages: [
       {
         name: "Starter Package",
-        emoji: "🚀",
         tagline: "Perfect for businesses just starting to go online",
         idr: "Rp 1 – 2 million",
         usd: "~$60 – $120",
@@ -151,7 +146,6 @@ const content: Record<Lang, Content> = {
       },
       {
         name: "Standard Package",
-        emoji: "💼",
         tagline: "Ideal for businesses needing a complete, professional presence",
         idr: "Rp 3 – 5 million",
         usd: "~$180 – $300",
@@ -176,7 +170,6 @@ const content: Record<Lang, Content> = {
       },
       {
         name: "Custom Package",
-        emoji: "⚙️",
         tagline: "For businesses with specific system and feature requirements",
         idr: "From Rp 8 million",
         usd: "~from $500",
@@ -200,7 +193,7 @@ const content: Record<Lang, Content> = {
       },
     ],
     note:
-      "💡 All packages include domain & hosting setup consultation. Prices may vary based on project complexity.",
+      "All packages include domain & hosting setup consultation. Prices may vary based on project complexity.",
   },
 }
 
@@ -256,9 +249,8 @@ export function BaliPricing({ lang }: { lang: Lang }) {
                   <div className="p-7 flex flex-col flex-1">
                     {/* Package name */}
                     <div className="mb-5">
-                      <span className="text-3xl">{pkg.emoji}</span>
                       <h3
-                        className="text-xl font-bold mt-3 mb-1"
+                        className="text-xl font-bold mb-1"
                         style={{ color: isFeatured ? pkg.accentText : "#0B0B0B" }}
                       >
                         {pkg.name}
@@ -344,7 +336,10 @@ export function BaliPricing({ lang }: { lang: Lang }) {
           </div>
 
           {/* Note */}
-          <p className="text-center text-sm text-gray-500 max-w-xl mx-auto">{t.note}</p>
+          <div className="flex items-start justify-center gap-2 max-w-xl mx-auto">
+            <Info className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+            <p className="text-sm text-gray-500">{t.note}</p>
+          </div>
 
         </div>
       </div>

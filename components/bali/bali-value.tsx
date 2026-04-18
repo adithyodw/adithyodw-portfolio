@@ -1,9 +1,10 @@
-import { MessageCircle } from "lucide-react"
+import { HelpCircle, Clock, Wallet, Check, MessageCircle, type LucideIcon } from "lucide-react"
 import { waLink } from "./bali-nav"
 import type { Lang } from "./bali-page"
 
+const FEAR_ICONS: LucideIcon[] = [HelpCircle, Clock, Wallet]
+
 interface Fear {
-  icon: string
   question: string
   answer: string
   color: string
@@ -30,21 +31,18 @@ const content: Record<Lang, Content> = {
       "Anda tidak perlu tau tentang coding, hosting, SEO, atau desain. Kirim info bisnis Anda via WhatsApp — kami yang kerjakan dari A sampai Z.",
     fears: [
       {
-        icon: "🤷",
         question: "Tidak tau teknis?",
         answer:
           "Tidak perlu tau apa-apa soal coding atau hosting. Anda cukup ceritakan bisnis Anda. Kami yang desain, coding, dan deploy semuanya.",
         color: "#6366F1",
       },
       {
-        icon: "⏰",
         question: "Tidak ada waktu?",
         answer:
           "Cukup 1 sesi chat WhatsApp 30 menit. Kirim foto, info harga, dan deskripsi bisnis — website Anda live dalam 7 sampai 14 hari kerja.",
         color: "#FF6B7A",
       },
       {
-        icon: "💰",
         question: "Takut mahal?",
         answer:
           "Mulai dari Rp 1 juta. Bayar sekali — tidak ada biaya plugin bulanan, tidak ada biaya hosting tahunan. Website Anda hidup selamanya.",
@@ -77,21 +75,18 @@ const content: Record<Lang, Content> = {
       "You don't need to know anything about coding, hosting, SEO, or design. Send your business info via WhatsApp — we take care of it all from A to Z.",
     fears: [
       {
-        icon: "🤷",
         question: "Don't know tech?",
         answer:
           "You don't need to know anything about coding or hosting. Just tell us about your business. We design, code, and deploy everything for you.",
         color: "#6366F1",
       },
       {
-        icon: "⏰",
         question: "No time?",
         answer:
           "Just one 30-minute WhatsApp chat. Send photos, pricing, and business info — your website goes live in 7 to 14 working days.",
         color: "#FF6B7A",
       },
       {
-        icon: "💰",
         question: "Worried about cost?",
         answer:
           "Starting from Rp 1 million. Pay once — no monthly plugin fees, no annual hosting bills. Your website lives forever.",
@@ -142,19 +137,24 @@ export function BaliValue({ lang }: { lang: Lang }) {
 
           {/* 3 Fear-busting cards */}
           <div className="grid md:grid-cols-3 gap-5 mb-12">
-            {t.fears.map((f, i) => (
-              <div
-                key={i}
-                className="bg-white border-[3px] border-white/20 rounded-[28px] overflow-hidden hover:translate-y-[-4px] transition-all duration-300"
-              >
-                <div className="h-2 w-full" style={{ backgroundColor: f.color }} />
-                <div className="p-7">
-                  <div className="text-4xl mb-4">{f.icon}</div>
-                  <h3 className="text-xl font-bold mb-3 text-[#0B0B0B]">{f.question}</h3>
-                  <p className="text-[15px] leading-[25px] text-[#393939] font-medium">{f.answer}</p>
+            {t.fears.map((f, i) => {
+              const Icon = FEAR_ICONS[i]
+              return (
+                <div
+                  key={i}
+                  className="bg-white border-[3px] border-white/20 rounded-[28px] overflow-hidden hover:translate-y-[-4px] transition-all duration-300"
+                >
+                  <div className="h-2 w-full" style={{ backgroundColor: f.color }} />
+                  <div className="p-7">
+                    <div className="mb-4">
+                      <Icon className="w-9 h-9" style={{ color: f.color }} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-[#0B0B0B]">{f.question}</h3>
+                    <p className="text-[15px] leading-[25px] text-[#393939] font-medium">{f.answer}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* What we handle — full-width checklist card */}
@@ -171,7 +171,7 @@ export function BaliValue({ lang }: { lang: Lang }) {
                   key={i}
                   className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3"
                 >
-                  <span className="text-[#25D366] font-bold text-base mt-0.5 flex-shrink-0">✓</span>
+                  <Check className="w-4 h-4 text-[#25D366] mt-0.5 flex-shrink-0" />
                   <span className="text-white text-sm font-medium leading-relaxed">{item}</span>
                 </div>
               ))}

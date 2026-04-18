@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight, ExternalLink, MapPin, Check } from "lucide-react"
 import Image from "next/image"
 
 type Segment = "all" | "fnb" | "laundry" | "healthcare" | "civic" | "business"
@@ -9,18 +9,17 @@ type Segment = "all" | "fnb" | "laundry" | "healthcare" | "civic" | "business"
 interface SegmentDef {
   id: Segment
   label: string
-  emoji: string
   color: string
   textColor: string
 }
 
 const SEGMENTS: SegmentDef[] = [
-  { id: "all",        label: "All Work",           emoji: "",   color: "#0B0B0B", textColor: "#FFFFFF" },
-  { id: "fnb",        label: "F&B & Hospitality",  emoji: "🍜", color: "#FF6B7A", textColor: "#FFFFFF" },
-  { id: "laundry",    label: "Laundry",            emoji: "🧺", color: "#2F81F7", textColor: "#FFFFFF" },
-  { id: "healthcare", label: "Healthcare",          emoji: "🏥", color: "#25D366", textColor: "#FFFFFF" },
-  { id: "civic",      label: "Civic & Political",  emoji: "🏛️", color: "#FDB927", textColor: "#0B0B0B" },
-  { id: "business",   label: "Business",           emoji: "🏢", color: "#6366F1", textColor: "#FFFFFF" },
+  { id: "all",        label: "All Work",           color: "#0B0B0B", textColor: "#FFFFFF" },
+  { id: "fnb",        label: "F&B & Hospitality",  color: "#FF6B7A", textColor: "#FFFFFF" },
+  { id: "laundry",    label: "Laundry",            color: "#2F81F7", textColor: "#FFFFFF" },
+  { id: "healthcare", label: "Healthcare",          color: "#25D366", textColor: "#FFFFFF" },
+  { id: "civic",      label: "Civic & Political",  color: "#FDB927", textColor: "#0B0B0B" },
+  { id: "business",   label: "Business",           color: "#6366F1", textColor: "#FFFFFF" },
 ]
 
 interface FeaturedProject {
@@ -142,13 +141,12 @@ function ClientCard({ project }: { project: ClientProject }) {
       <div className="h-2 w-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
 
       <div className="p-6 flex flex-col flex-1">
-        {/* Segment tag + stack */}
+        {/* Segment tag */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <span
-            className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border-2 border-black"
+            className="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full border-2 border-black"
             style={{ backgroundColor: seg.color, color: seg.textColor }}
           >
-            {seg.emoji && <span>{seg.emoji}</span>}
             {seg.label}
           </span>
         </div>
@@ -164,8 +162,9 @@ function ClientCard({ project }: { project: ClientProject }) {
         </p>
 
         {project.result && (
-          <div className="bg-[#f0fdf4] border-2 border-[#86efac] rounded-xl px-3 py-1.5 mb-4 w-fit">
-            <span className="text-[#16a34a] text-xs font-bold">✓ {project.result}</span>
+          <div className="bg-[#f0fdf4] border-2 border-[#86efac] rounded-xl px-3 py-1.5 mb-4 w-fit flex items-center gap-1.5">
+            <Check className="w-3.5 h-3.5 text-[#16a34a] flex-shrink-0" />
+            <span className="text-[#16a34a] text-xs font-bold">{project.result}</span>
           </div>
         )}
 
@@ -203,8 +202,6 @@ export function PortfolioSection() {
     active === "all"
       ? CLIENT_PROJECTS
       : CLIENT_PROJECTS.filter((p) => p.segment === active)
-
-  const activeSeg = SEGMENTS.find((s) => s.id === active)!
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
@@ -284,16 +281,16 @@ export function PortfolioSection() {
         <div className="my-4 bg-[#FFC224] border-[3px] border-black rounded-[32px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-4xl">🌴</span>
+              <MapPin className="w-7 h-7 text-black flex-shrink-0" />
               <span className="text-xs font-bold uppercase tracking-widest bg-black text-white px-3 py-1.5 rounded-full">
                 Bali Market
               </span>
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-[#0B0B0B] mb-2 leading-tight">
-              Also building websites for<br className="hidden md:block" /> Bali's local businesses.
+              Also building websites for<br className="hidden md:block" /> Bali&apos;s local businesses.
             </h3>
             <p className="text-[#393939] text-base font-medium max-w-lg mb-5 leading-relaxed">
-              Dedicated bilingual (ID/EN) web service for Bali's market — F&B, laundry, hotels, villas, clinics & SMEs. Pricing from Rp 1 juta (~$60).
+              Dedicated bilingual (ID/EN) web service for Bali&apos;s market — F&B, laundry, hotels, villas, clinics & SMEs. Pricing from Rp 1 juta (~$60).
             </p>
             <div className="flex flex-wrap gap-2">
               {["8+ Bali Projects", "ID/EN Bilingual", "From Rp 1 juta", "WhatsApp-optimised", "Next.js + Vercel"].map((tag) => (
@@ -333,7 +330,7 @@ export function PortfolioSection() {
                 <button
                   key={seg.id}
                   onClick={() => setActive(seg.id)}
-                  className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold border-[2.5px] border-black transition-all duration-200"
+                  className="flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border-[2.5px] border-black transition-all duration-200"
                   style={
                     isActive
                       ? {
@@ -348,7 +345,6 @@ export function PortfolioSection() {
                         }
                   }
                 >
-                  {seg.emoji && <span>{seg.emoji}</span>}
                   {seg.label}
                 </button>
               )
@@ -371,7 +367,7 @@ export function PortfolioSection() {
                         style={{ backgroundColor: segDef.color }}
                       />
                       <span className="text-base font-bold text-[#0B0B0B] tracking-wide">
-                        {segDef.emoji} {segDef.label}
+                        {segDef.label}
                       </span>
                       <div className="flex-1 h-[2px] bg-black/10" />
                     </div>

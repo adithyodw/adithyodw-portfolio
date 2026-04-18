@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight, ExternalLink, Check } from "lucide-react"
 import type { Lang } from "./bali-page"
 
 type Segment = "all" | "fnb" | "laundry" | "healthcare" | "civic" | "business"
@@ -10,18 +10,17 @@ interface SegmentDef {
   id: Segment
   labelId: string
   labelEn: string
-  emoji: string
   color: string
   textColor: string
 }
 
 const SEGMENTS: SegmentDef[] = [
-  { id: "all",        labelId: "Semua",             labelEn: "All Work",           emoji: "",   color: "#0B0B0B", textColor: "#FFFFFF" },
-  { id: "fnb",        labelId: "F&B & Hospitality", labelEn: "F&B & Hospitality",  emoji: "🍜", color: "#FF6B7A", textColor: "#FFFFFF" },
-  { id: "laundry",    labelId: "Laundry",           labelEn: "Laundry",            emoji: "🧺", color: "#2F81F7", textColor: "#FFFFFF" },
-  { id: "healthcare", labelId: "Kesehatan",         labelEn: "Healthcare",         emoji: "🏥", color: "#25D366", textColor: "#FFFFFF" },
-  { id: "civic",      labelId: "Civic & Politik",   labelEn: "Civic & Political",  emoji: "🏛️", color: "#FDB927", textColor: "#0B0B0B" },
-  { id: "business",   labelId: "Bisnis",            labelEn: "Business",           emoji: "🏢", color: "#6366F1", textColor: "#FFFFFF" },
+  { id: "all",        labelId: "Semua",             labelEn: "All Work",           color: "#0B0B0B", textColor: "#FFFFFF" },
+  { id: "fnb",        labelId: "F&B & Hospitality", labelEn: "F&B & Hospitality",  color: "#FF6B7A", textColor: "#FFFFFF" },
+  { id: "laundry",    labelId: "Laundry",           labelEn: "Laundry",            color: "#2F81F7", textColor: "#FFFFFF" },
+  { id: "healthcare", labelId: "Kesehatan",         labelEn: "Healthcare",         color: "#25D366", textColor: "#FFFFFF" },
+  { id: "civic",      labelId: "Civic & Politik",   labelEn: "Civic & Political",  color: "#FDB927", textColor: "#0B0B0B" },
+  { id: "business",   labelId: "Bisnis",            labelEn: "Business",           color: "#6366F1", textColor: "#FFFFFF" },
 ]
 
 interface Project {
@@ -171,7 +170,7 @@ export function BaliPortfolio({ lang }: { lang: Lang }) {
               <button
                 key={seg.id}
                 onClick={() => setActive(seg.id)}
-                className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold border-[2.5px] border-black transition-all duration-200"
+                className="flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border-[2.5px] border-black transition-all duration-200"
                 style={
                   isActive
                     ? {
@@ -183,7 +182,6 @@ export function BaliPortfolio({ lang }: { lang: Lang }) {
                     : { backgroundColor: "#FFFFFF", color: "#0B0B0B" }
                 }
               >
-                {seg.emoji && <span>{seg.emoji}</span>}
                 {label}
               </button>
             )
@@ -205,7 +203,7 @@ export function BaliPortfolio({ lang }: { lang: Lang }) {
                       style={{ backgroundColor: segDef.color }}
                     />
                     <span className="text-base font-bold text-[#0B0B0B] tracking-wide">
-                      {segDef.emoji} {segLabel}
+                      {segLabel}
                     </span>
                     <div className="flex-1 h-[2px] bg-black/10" />
                   </div>
@@ -261,10 +259,9 @@ function ProjectCard({
       <div className="p-6 flex flex-col flex-1">
         <div className="mb-4">
           <span
-            className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border-2 border-black"
+            className="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full border-2 border-black"
             style={{ backgroundColor: segDef.color, color: segDef.textColor }}
           >
-            {segDef.emoji && <span>{segDef.emoji}</span>}
             {lang === "id" ? segDef.labelId : segDef.labelEn}
           </span>
         </div>
@@ -276,8 +273,9 @@ function ProjectCard({
         <p className="text-[14px] leading-[22px] text-[#393939] font-medium flex-1 mb-4">{desc}</p>
 
         {result && (
-          <div className="bg-[#f0fdf4] border-2 border-[#86efac] rounded-xl px-3 py-1.5 mb-4 w-fit">
-            <span className="text-[#16a34a] text-xs font-bold">✓ {result}</span>
+          <div className="bg-[#f0fdf4] border-2 border-[#86efac] rounded-xl px-3 py-1.5 mb-4 w-fit flex items-center gap-1.5">
+            <Check className="w-3.5 h-3.5 text-[#16a34a] flex-shrink-0" />
+            <span className="text-[#16a34a] text-xs font-bold">{result}</span>
           </div>
         )}
 

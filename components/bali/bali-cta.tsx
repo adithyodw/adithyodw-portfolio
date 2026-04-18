@@ -1,4 +1,4 @@
-import { MessageCircle, Linkedin } from "lucide-react"
+import { MessageCircle, Linkedin, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { waLink } from "./bali-nav"
 import type { Lang } from "./bali-page"
@@ -23,7 +23,7 @@ const content: Record<Lang, Content> = {
     cta2: "Tanya via LinkedIn",
     waMsg:
       "Halo Adithyo, saya ingin konsultasi gratis untuk website bisnis saya di Bali. Tolong bantu saya.",
-    badges: ["✓ Konsultasi gratis", "✓ Respons cepat", "✓ Portfolio nyata", "✓ Mobile-friendly"],
+    badges: ["Konsultasi gratis", "Respons cepat", "Portfolio nyata", "Mobile-friendly"],
   },
   en: {
     heading: "Ready to Build Your",
@@ -34,7 +34,7 @@ const content: Record<Lang, Content> = {
     cta2: "Ask via LinkedIn",
     waMsg:
       "Hello Adithyo, I'd like a free consultation for my Bali business website. Please help me.",
-    badges: ["✓ Free consultation", "✓ Fast response", "✓ Real portfolio", "✓ Mobile-friendly"],
+    badges: ["Free consultation", "Fast response", "Real portfolio", "Mobile-friendly"],
   },
 }
 
@@ -59,8 +59,9 @@ export function BaliCta({ lang }: { lang: Lang }) {
             {t.badges.map((b, i) => (
               <span
                 key={i}
-                className="bg-white/10 border-2 border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full"
+                className="bg-white/10 border-2 border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-2"
               >
+                <Check className="w-3.5 h-3.5 text-[#25D366] flex-shrink-0" />
                 {b}
               </span>
             ))}

@@ -3,7 +3,57 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 
-export function Footer() {
+type Lang = "en" | "id"
+
+interface Content {
+  newsletterTitle: string
+  newsletterSub: string
+  newsletterPlaceholder: string
+  newsletterBtn: string
+  tagline: string
+  navLabel: string
+  navLinks: { label: string; href: string }[]
+  contactLabel: string
+}
+
+const content: Record<Lang, Content> = {
+  en: {
+    newsletterTitle: "Stay in the loop",
+    newsletterSub: "Get updates on new projects and insights.",
+    newsletterPlaceholder: "Enter your email address",
+    newsletterBtn: "Subscribe",
+    tagline: "Senior Solutions Manager at Singtel. Enterprise solutions architect and full-stack builder based in Singapore.",
+    navLabel: "Navigation",
+    navLinks: [
+      { label: "Home",       href: "#home" },
+      { label: "About",      href: "#about" },
+      { label: "Portfolio",  href: "#portfolio" },
+      { label: "Experience", href: "#experience" },
+      { label: "Services",   href: "#services" },
+    ],
+    contactLabel: "Contact",
+  },
+  id: {
+    newsletterTitle: "Tetap update",
+    newsletterSub: "Dapatkan info proyek terbaru dan wawasan menarik.",
+    newsletterPlaceholder: "Masukkan alamat email Anda",
+    newsletterBtn: "Berlangganan",
+    tagline: "Senior Solutions Manager di Singtel. Arsitek solusi enterprise dan full-stack builder berbasis di Singapura.",
+    navLabel: "Navigasi",
+    navLinks: [
+      { label: "Beranda",    href: "#home" },
+      { label: "Tentang",    href: "#about" },
+      { label: "Portfolio",  href: "#portfolio" },
+      { label: "Pengalaman", href: "#experience" },
+      { label: "Layanan",    href: "#services" },
+    ],
+    contactLabel: "Kontak",
+  },
+}
+
+export function Footer({ lang = "en" }: { lang?: Lang }) {
+  const t = content[lang]
+
   return (
     <footer className="bg-black text-white py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -23,18 +73,18 @@ export function Footer() {
 
               <div className="w-full flex-1 bg-white border-4 border-black rounded-3xl py-4 px-4 md:py-6 md:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-6">
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl md:text-2xl font-bold text-black">Stay in the loop</h3>
-                  <p className="text-gray-600 text-sm mt-1">Get updates on new projects and insights.</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-black">{t.newsletterTitle}</h3>
+                  <p className="text-gray-600 text-sm mt-1">{t.newsletterSub}</p>
                 </div>
 
                 <div className="relative w-full md:w-auto md:min-w-[400px] lg:min-w-[480px]">
                   <Input
                     type="email"
-                    placeholder="Enter your email address"
+                    placeholder={t.newsletterPlaceholder}
                     className="border-4 border-black rounded-xl px-4 md:px-6 h-14 md:h-16 pr-32 md:pr-44 text-base md:text-lg placeholder:text-gray-500"
                   />
                   <Button className="absolute right-2 top-2 bottom-2 bg-black text-white hover:bg-black/90 rounded-[10px] px-6 md:px-10 text-sm md:text-base font-semibold whitespace-nowrap h-auto">
-                    Subscribe
+                    {t.newsletterBtn}
                   </Button>
                 </div>
               </div>
@@ -50,7 +100,7 @@ export function Footer() {
                 <span className="text-lg md:text-xl font-bold">Adithyo DW</span>
               </div>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-                Senior Solutions Manager at Singtel. Enterprise solutions architect and full-stack builder based in Singapore.
+                {t.tagline}
               </p>
               <div className="flex gap-3">
                 <a
@@ -75,38 +125,20 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Navigation</h3>
+              <h3 className="font-bold mb-4">{t.navLabel}</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li>
-                  <a href="#home" className="hover:text-white transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="hover:text-white transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#portfolio" className="hover:text-white transition-colors">
-                    Portfolio
-                  </a>
-                </li>
-                <li>
-                  <a href="#experience" className="hover:text-white transition-colors">
-                    Experience
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-white transition-colors">
-                    Services
-                  </a>
-                </li>
+                {t.navLinks.map((l) => (
+                  <li key={l.href}>
+                    <a href={l.href} className="hover:text-white transition-colors">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Contact</h3>
+              <h3 className="font-bold mb-4">{t.contactLabel}</h3>
               <ul className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Linkedin className="w-4 h-4 flex-shrink-0" />

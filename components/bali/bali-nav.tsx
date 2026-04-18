@@ -1,4 +1,4 @@
-import { Mail, ArrowLeft } from "lucide-react"
+import { Mail, ArrowLeft, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Lang } from "./bali-page"
 
@@ -61,10 +61,11 @@ export function BaliNav({ lang, setLang }: Props) {
         <div className="flex items-center gap-2 flex-shrink-0">
           <button
             onClick={() => setLang(lang === "id" ? "en" : "id")}
-            className="border-2 border-black rounded-lg px-3 py-2 text-sm font-bold hover:bg-gray-50 transition-colors whitespace-nowrap"
+            className="flex items-center gap-1.5 border-2 border-black rounded-lg px-3 py-2 text-sm font-bold hover:bg-gray-50 transition-colors whitespace-nowrap"
             aria-label="Toggle language"
           >
-            {lang === "id" ? "🇬🇧 EN" : "🇮🇩 ID"}
+            <Globe className="w-4 h-4" />
+            {lang === "id" ? "EN" : "ID"}
           </button>
           <a
             href={waLink(
