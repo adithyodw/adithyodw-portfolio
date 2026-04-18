@@ -46,7 +46,7 @@ export function ArticlesSection() {
               <div className="flex items-center gap-3 md:gap-4">
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-[#FDB927] border-2 border-black rounded-full overflow-hidden flex-shrink-0">
                   <Image
-                    src="/cartoon-avatar-man-with-beard-yellow-shirt.jpg"
+                    src="/adithyo.png"
                     alt="Adithyo Dewangga Wijaya"
                     width={64}
                     height={64}
