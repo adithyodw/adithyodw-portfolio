@@ -51,7 +51,7 @@ interface Badge {
  * (in the section heading) to keep the collection visually clean.
  */
 const BADGES: Badge[] = [
-  { id: "bank-indonesia",   role: "Network Engineer",           dept: "Human Capital Department", accent: "#1B3A6B", headerBg: "#f4f7fc" },
+  { id: "bank-indonesia",   role: "Network Engineer (Intern)",  dept: "Human Capital Department", accent: "#1B3A6B", headerBg: "#f4f7fc" },
   { id: "psi",              role: "Network Engineer",           dept: "Engineering Department",   accent: "#0072BC", headerBg: "#f2f8fd" },
   { id: "ntt",              role: "Solutions Architect",        dept: "Enterprise Solutions",     accent: "#0033A0", headerBg: "#f2f5fc" },
   { id: "tech-mahindra",    role: "Project Lead",               dept: "Network Services",         accent: "#E31E24", headerBg: "#fdf3f3" },
@@ -63,116 +63,38 @@ const BADGES: Badge[] = [
   { id: "google",           role: "Technical Program Manager",  dept: "WAN Infrastructure & Capacity", accent: "#4285F4", headerBg: "#f5f8ff" },
 ]
 
-const SANS = "'Onest', 'Segoe UI', Arial, sans-serif"
+const LOGO_SRC: Record<BrandId, string> = {
+  "bank-indonesia": "/logos/badges/bank-indonesia.svg",
+  "psi": "/logos/badges/packet-systems.png",
+  "ntt": "/logos/badges/ntt.svg",
+  "tech-mahindra": "/logos/badges/tech-mahindra.svg",
+  "indosat": "/logos/badges/indosat.svg",
+  "ibm": "/logos/badges/ibm.svg",
+  "ingram": "/logos/badges/ingram-micro.svg",
+  "singtel": "/logos/badges/singtel.svg",
+  "deutsche-telekom": "/logos/badges/deutsche-telekom.svg",
+  "google": "/logos/badges/google.svg",
+}
 
-/**
- * Recognizable SVG recreations of each employer's brand mark, used purely to
- * identify real career milestones (nominative use, as on LinkedIn). Correct
- * brand colours and iconic forms; kept lightweight and offline-safe.
- */
+const LOGO_ALT: Record<BrandId, string> = {
+  "bank-indonesia": "Bank Indonesia",
+  "psi": "Packet Systems Indonesia",
+  "ntt": "NTT Communications",
+  "tech-mahindra": "Tech Mahindra",
+  "indosat": "Indosat Ooredoo Hutchison",
+  "ibm": "IBM",
+  "ingram": "Ingram Micro",
+  "singtel": "Singtel",
+  "deutsche-telekom": "Deutsche Telekom",
+  "google": "Google",
+}
+
+/** Official employer logos, used to identify real career milestones. */
 function BrandMark({ id }: { id: BrandId }) {
-  switch (id) {
-    case "bank-indonesia":
-      return (
-        <svg className="exd-logo" width={134} height={34} viewBox="0 0 150 40" role="img" aria-label="Bank Indonesia">
-          <circle cx="18" cy="20" r="17" fill="#1B3A6B" />
-          <text x="18" y="26" textAnchor="middle" fontFamily={SANS} fontSize="15" fontWeight="800" fill="#fff">BI</text>
-          <text x="42" y="17" fontFamily={SANS} fontSize="11.5" fontWeight="800" fill="#1B3A6B" letterSpacing="0.5">BANK</text>
-          <text x="42" y="31" fontFamily={SANS} fontSize="11.5" fontWeight="800" fill="#1B3A6B" letterSpacing="0.5">INDONESIA</text>
-        </svg>
-      )
-    case "psi":
-      return (
-        <svg className="exd-logo" width={134} height={34} viewBox="0 0 152 40" role="img" aria-label="Packet Systems Indonesia">
-          <text x="0" y="27" fontFamily={SANS} fontSize="27" fontWeight="900" letterSpacing="-1">
-            <tspan fill="#0072BC">PS</tspan><tspan fill="#E31E24">i</tspan>
-          </text>
-          <text x="54" y="16" fontFamily={SANS} fontSize="9" fontWeight="700" fill="#3a3a3a">Packet Systems</text>
-          <text x="54" y="28" fontFamily={SANS} fontSize="9" fontWeight="700" fill="#E31E24">Indonesia</text>
-        </svg>
-      )
-    case "ntt":
-      return (
-        <svg className="exd-logo" width={110} height={34} viewBox="0 0 118 40" role="img" aria-label="NTT Communications">
-          <circle cx="19" cy="20" r="14" fill="none" stroke="#0033A0" strokeWidth="4" />
-          <path d="M11 26 C 14 9, 24 9, 27 26" fill="none" stroke="#0033A0" strokeWidth="4" strokeLinecap="round" />
-          <text x="40" y="28" fontFamily={SANS} fontSize="20" fontWeight="800" fill="#0033A0" letterSpacing="0.5">NTT</text>
-        </svg>
-      )
-    case "tech-mahindra":
-      return (
-        <svg className="exd-logo" width={120} height={38} viewBox="0 0 130 44" role="img" aria-label="Tech Mahindra">
-          <text x="2" y="16" fontFamily={SANS} fontSize="12" fontWeight="800" fill="#12284C" letterSpacing="3">TECH</text>
-          <text x="2" y="38" fontFamily={SANS} fontSize="21" fontWeight="800" fill="#E31E24" letterSpacing="-0.5">mahindra</text>
-        </svg>
-      )
-    case "indosat":
-      return (
-        <svg className="exd-logo" width={128} height={34} viewBox="0 0 140 40" role="img" aria-label="Indosat Ooredoo Hutchison">
-          <defs>
-            <radialGradient id="exdIndosatOrb" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stopColor="#FDB813" />
-              <stop offset="100%" stopColor="#F26522" />
-            </radialGradient>
-          </defs>
-          <text x="0" y="28" fontFamily={SANS} fontSize="25" fontWeight="800" fill="#ED1B2F" letterSpacing="-0.5">indosat</text>
-          <circle cx="122" cy="14" r="9" fill="url(#exdIndosatOrb)" />
-        </svg>
-      )
-    case "ibm":
-      return (
-        <svg className="exd-logo" width={78} height={32} viewBox="0 0 104 44" role="img" aria-label="IBM">
-          <defs>
-            <pattern id="exdIbmStripes" width="6" height="6" patternUnits="userSpaceOnUse">
-              <rect width="6" height="4" fill="#1F70C1" />
-            </pattern>
-          </defs>
-          <text x="2" y="36" fontFamily="Arial, Helvetica, sans-serif" fontSize="40" fontWeight="900" fill="url(#exdIbmStripes)" letterSpacing="2">IBM</text>
-        </svg>
-      )
-    case "ingram":
-      return (
-        <svg className="exd-logo" width={134} height={30} viewBox="0 0 150 36" role="img" aria-label="Ingram Micro">
-          <text x="0" y="25" fontFamily={SANS} fontSize="21" fontWeight="800" fill="#003DA5" letterSpacing="-0.5">Ingram</text>
-          <circle cx="86" cy="18" r="4" fill="#E31E24" />
-          <text x="96" y="22" fontFamily={SANS} fontSize="11" fontWeight="800" fill="#003DA5" letterSpacing="1.5">MICRO</text>
-        </svg>
-      )
-    case "singtel":
-      return (
-        <svg className="exd-logo" width={110} height={32} viewBox="0 0 124 40" role="img" aria-label="Singtel">
-          <g fill="#ED1C24">
-            <circle cx="6" cy="11" r="3" />
-            <circle cx="14.5" cy="7.5" r="2.3" />
-            <circle cx="22" cy="5.5" r="1.6" />
-          </g>
-          <text x="2" y="33" fontFamily={SANS} fontSize="25" fontWeight="800" fill="#ED1C24" letterSpacing="-0.5">Singtel</text>
-        </svg>
-      )
-    case "deutsche-telekom":
-      return (
-        <svg className="exd-logo" width={132} height={34} viewBox="0 0 148 40" role="img" aria-label="Deutsche Telekom">
-          <g fill="#E20074">
-            <rect x="0" y="14" width="5" height="5" />
-            <rect x="0" y="21" width="5" height="5" />
-            <rect x="34" y="14" width="5" height="5" />
-            <rect x="34" y="21" width="5" height="5" />
-            <rect x="8" y="7" width="23" height="7" />
-            <rect x="15" y="7" width="9" height="27" />
-          </g>
-          <text x="46" y="18" fontFamily={SANS} fontSize="12" fontWeight="700" fill="#0B0B0B">Deutsche</text>
-          <text x="46" y="33" fontFamily={SANS} fontSize="12" fontWeight="700" fill="#0B0B0B">Telekom</text>
-        </svg>
-      )
-    case "google":
-      return (
-        <svg className="exd-logo" width={120} height={35} viewBox="0 0 150 44" role="img" aria-label="Google">
-          <text x="2" y="34" fontFamily={SANS} fontSize="38" fontWeight="600" letterSpacing="-1.5">
-            <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
-          </text>
-        </svg>
-      )
-  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={LOGO_SRC[id]} alt={LOGO_ALT[id]} className="exd-logo" loading="lazy" />
+  )
 }
 
 export function ExecutiveDeskSection({ lang = "en" }: { lang?: Lang }) {
@@ -544,8 +466,9 @@ export function ExecutiveDeskSection({ lang = "en" }: { lang?: Lang }) {
           display: block;
           width: auto;
           height: auto;
-          max-width: 90%;
-          max-height: 38px;
+          max-width: 82%;
+          max-height: 30px;
+          object-fit: contain;
         }
 
         @media (prefers-reduced-motion: reduce) {
