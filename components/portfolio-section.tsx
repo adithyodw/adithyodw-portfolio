@@ -75,14 +75,32 @@ const CLIENT_PROJECTS: ClientProject[] = [
     stack: "Next.js · TypeScript · Tailwind CSS",
     segment: "fnb",
     github: "https://github.com/adithyodw/Bhumi-lovina-bali",
+    live: "https://bhumi-lovina-website.vercel.app/",
   },
   {
     title: "Djaya Massage & Reflexology",
     desc: "Luxury spa and wellness website with interactive service menus, gallery, and WhatsApp booking integration. Designed to attract hotel guests and international tourists.",
     stack: "Next.js · TypeScript · Framer Motion · Tailwind CSS",
     segment: "fnb",
-    github: "https://github.com/adithyodw/djaya-massage-website",
+    github: "https://github.com/adithyodw/djaya-apps",
+    live: "https://djaya-apps.vercel.app",
     result: "4.8★ Google Reviews — 38+ customer reviews",
+  },
+  {
+    title: "Sasalle Hotel",
+    desc: "Boutique hotel website with immersive room showcases, availability enquiry, and a direct booking flow — crafted to convert browsing travelers into confirmed guests.",
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    segment: "fnb",
+    github: "https://github.com/adithyodw/sasalle-hotel",
+    live: "https://sasalle-hotel.vercel.app/",
+  },
+  {
+    title: "Mas Yudi Batam Tour",
+    desc: "Tour operator platform for Batam travel packages — curated itineraries, transparent pricing, and instant WhatsApp booking tailored for regional tourists.",
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    segment: "fnb",
+    github: "https://github.com/adithyodw/mas-yudi-batam-tour",
+    live: "https://mas-yudi-batam-tour.vercel.app/",
   },
   {
     title: "Bandar Laundry Bali",
@@ -90,6 +108,7 @@ const CLIENT_PROJECTS: ClientProject[] = [
     stack: "Next.js · TypeScript · Tailwind CSS",
     segment: "laundry",
     github: "https://github.com/adithyodw/Bandar-laundry-bali",
+    live: "https://bandar-laundry-bali.vercel.app",
   },
   {
     title: "Skinderma Aesthetic Clinic",
@@ -101,11 +120,20 @@ const CLIENT_PROJECTS: ClientProject[] = [
     result: "Serving international patients from SG & MY",
   },
   {
+    title: "Skinderma Apps",
+    desc: "Patient-facing companion app for the Skinderma aesthetic brand — appointment booking, treatment catalogue, and skincare product ordering in one streamlined mobile-first experience.",
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    segment: "healthcare",
+    github: "https://github.com/adithyodw/skinderma-apps",
+    live: "https://skinderma-apps.vercel.app",
+  },
+  {
     title: "Lapor Bro Ron",
     desc: "Civic digital platform enabling community members to submit and track reports directly to their local representative — transparent governance powered by technology.",
     stack: "Next.js · TypeScript · Tailwind CSS",
     segment: "civic",
     github: "https://github.com/adithyodw/lapor-bro-ron",
+    live: "https://lapor-bro-ron.vercel.app/",
   },
   {
     title: "Lapor Pak Manang",
@@ -113,6 +141,15 @@ const CLIENT_PROJECTS: ClientProject[] = [
     stack: "Next.js · TypeScript · Tailwind CSS",
     segment: "civic",
     github: "https://github.com/adithyodw/lapor-pak-manang",
+    live: "https://lapor-pak-manang.vercel.app/",
+  },
+  {
+    title: "Elite Barber",
+    desc: "Modern booking platform for a premium barbershop — online appointment scheduling, service menu, barber profiles, and gallery designed to keep every chair full.",
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    segment: "business",
+    github: "https://github.com/adithyodw/elite-barber-apps",
+    live: "https://elite-barber-apps.vercel.app",
   },
   {
     title: "Netdata Website",
@@ -120,6 +157,7 @@ const CLIENT_PROJECTS: ClientProject[] = [
     stack: "Next.js · TypeScript · Tailwind CSS",
     segment: "business",
     github: "https://github.com/adithyodw/netdata-website",
+    live: "https://netdata-website.vercel.app",
   },
   {
     title: "Baginda Website",
@@ -127,6 +165,7 @@ const CLIENT_PROJECTS: ClientProject[] = [
     stack: "Next.js · TypeScript · Tailwind CSS",
     segment: "business",
     github: "https://github.com/adithyodw/Baginda-Website",
+    live: "https://baginda-website.vercel.app",
   },
 ]
 

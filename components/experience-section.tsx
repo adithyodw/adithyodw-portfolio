@@ -41,48 +41,92 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    period: "2020 — Present",
+    period: "2026 — Present",
+    titleEn: "Technical Program Manager, WAN Infrastructure and Capacity",
+    titleId: "Technical Program Manager, WAN Infrastructure and Capacity",
+    company: "Google, Singapore",
+    descEn:
+      "Driving technical program management for wide-area network (WAN) infrastructure and capacity planning across global backbone systems. Aligning cross-functional engineering execution with large-scale capacity strategy.",
+    descId:
+      "Memimpin manajemen program teknis untuk infrastruktur wide-area network (WAN) dan perencanaan kapasitas di seluruh sistem backbone global. Menyelaraskan eksekusi engineering lintas fungsi dengan strategi kapasitas berskala besar.",
+    icon: "/images/agency.png",
+  },
+  {
+    period: "2022 — 2026",
     titleEn: "Senior Solutions Manager",
     titleId: "Senior Solutions Manager",
     company: "Singtel, Singapore",
     descEn:
-      "Leading pre-sales technical architecture for enterprise clients. Designing end-to-end network, security, and cloud infrastructure solutions across the APAC region.",
+      "Pre-sales technical consultation and solution architecture for global SD-WAN and MPLS/IP WAN networks. Lead presales architect for Singtel Wholesale, driving USD 150M+ annual revenue across enterprise, carrier, and financial-sector customers.",
     descId:
-      "Memimpin arsitektur teknis pre-sales untuk klien enterprise. Merancang solusi infrastruktur jaringan, keamanan, dan cloud end-to-end di seluruh kawasan APAC.",
-    icon: "/images/agency.png",
-  },
-  {
-    period: "2016 — 2020",
-    titleEn: "Solutions Architect",
-    titleId: "Solutions Architect",
-    company: "Singapore",
-    descEn:
-      "Designed and delivered complex ICT infrastructure proposals for enterprise segment clients. Specialising in network security, unified communications, and managed services.",
-    descId:
-      "Merancang dan menghadirkan proposal infrastruktur ICT kompleks untuk klien segmen enterprise. Spesialisasi dalam keamanan jaringan, unified communications, dan managed services.",
+      "Konsultasi teknis pre-sales dan arsitektur solusi untuk jaringan SD-WAN serta MPLS/IP WAN global. Lead presales architect untuk Singtel Wholesale, mendorong pendapatan tahunan USD 150 juta+ di segmen enterprise, carrier, dan sektor finansial.",
     icon: "/images/company.png",
   },
   {
-    period: "2013 — 2016",
-    titleEn: "Enterprise Network Specialist",
-    titleId: "Enterprise Network Specialist",
-    company: "Indonesia – Singapore",
+    period: "2018 — 2022",
+    titleEn: "Senior Technical Solutions Engineer",
+    titleId: "Senior Technical Solutions Engineer",
+    company: "Ingram Micro, Singapore",
     descEn:
-      "Deployed enterprise networking and security infrastructure for multinational clients across Greater Jakarta. Awarded Best Team Award (2015) for outstanding project delivery.",
+      "Delivered innovative pre-sales network solutions across routing & switching, IP telephony, wireless LAN, and network security from Cisco, Juniper, Palo Alto Networks, and HPE Aruba — architecting complete solutions with sales and vendor teams.",
     descId:
-      "Mendeploy infrastruktur jaringan dan keamanan enterprise untuk klien multinasional di wilayah Jabodetabek. Meraih penghargaan Best Team Award (2015) atas pengiriman proyek yang luar biasa.",
+      "Menghadirkan solusi jaringan pre-sales inovatif mencakup routing & switching, IP telephony, wireless LAN, dan keamanan jaringan dari Cisco, Juniper, Palo Alto Networks, dan HPE Aruba — merancang solusi lengkap bersama tim sales dan vendor.",
+    icon: "/images/startup.png",
+  },
+  {
+    period: "2017 — 2018",
+    titleEn: "Lead Network Engineer",
+    titleId: "Lead Network Engineer",
+    company: "IBM, Singapore",
+    descEn:
+      "Led a team of network and security engineers, owning capacity planning, fault tolerance, and network operations strategy while delivering configuration changes and project implementations with minimal disruption.",
+    descId:
+      "Memimpin tim network dan security engineer, menangani capacity planning, fault tolerance, dan strategi operasi jaringan sekaligus mengeksekusi perubahan konfigurasi dan implementasi proyek dengan gangguan minimal.",
     icon: "/images/busines.png",
   },
   {
-    period: "2011 — 2013",
-    titleEn: "Network Engineer",
-    titleId: "Network Engineer",
-    company: "Jakarta, Indonesia",
+    period: "2016 — 2017",
+    titleEn: "Network Operations Manager",
+    titleId: "Network Operations Manager",
+    company: "Indosat Ooredoo Hutchison, Singapore",
     descEn:
-      "Foundation-level network engineering and security infrastructure management. Earned CCNA, CCSA, Palo Alto ACE, and HP AIS certifications during this period.",
+      "Led the Network Operations team with 24/7 support across international submarine cable projects (JB3JS, INDIGO, JAKABARE, SMW3), managing terrestrial backhaul and CLS/PoP integration with subsea systems across Singapore, Indonesia, and APAC.",
     descId:
-      "Rekayasa jaringan tingkat dasar dan manajemen infrastruktur keamanan. Meraih sertifikasi CCNA, CCSA, Palo Alto ACE, dan HP AIS pada periode ini.",
+      "Memimpin tim Network Operations dengan dukungan 24/7 untuk proyek kabel laut internasional (JB3JS, INDIGO, JAKABARE, SMW3), mengelola backhaul terestrial dan integrasi CLS/PoP dengan sistem subsea di Singapura, Indonesia, dan APAC.",
+    icon: "/images/agency.png",
+  },
+  {
+    period: "2014 — 2016",
+    titleEn: "Lead Network Engineer",
+    titleId: "Lead Network Engineer",
+    company: "Tech Mahindra, Indonesia",
+    descEn:
+      "Deployed to Hutchison 3 Indonesia (H3I) managing data center service operations — F5 ASM/LTM/GTM virtual servers and Cisco Nexus / Arista fabrics — ensuring secure, high-availability network infrastructure.",
+    descId:
+      "Ditempatkan di Hutchison 3 Indonesia (H3I) mengelola operasi layanan data center — virtual server F5 ASM/LTM/GTM serta fabric Cisco Nexus / Arista — memastikan infrastruktur jaringan aman dan high-availability.",
+    icon: "/images/company.png",
+  },
+  {
+    period: "2014 — 2015",
+    titleEn: "Project Manager & Presales Engineer",
+    titleId: "Project Manager & Presales Engineer",
+    company: "NTT Communications, Indonesia",
+    descEn:
+      "Managed network integration projects and presales design — leading terrestrial backhaul, IEPL/IPLC, and data-center interconnect solutions while delivering technical presentations to support enterprise sales.",
+    descId:
+      "Mengelola proyek integrasi jaringan dan desain presales — memimpin solusi backhaul terestrial, IEPL/IPLC, dan interkoneksi data center sekaligus memberikan presentasi teknis untuk mendukung penjualan enterprise.",
     icon: "/images/startup.png",
+  },
+  {
+    period: "2013 — 2014",
+    titleEn: "Network Security Engineer",
+    titleId: "Network Security Engineer",
+    company: "Packet Systems Indonesia",
+    descEn:
+      "Built, deployed, and monitored firewalls, DDoS shields, and intrusion-detection systems for hundreds of customers — installing and troubleshooting Check Point, Juniper, Cisco, Blue Coat, and HP TippingPoint security devices.",
+    descId:
+      "Membangun, men-deploy, dan memantau firewall, perisai DDoS, dan sistem deteksi intrusi untuk ratusan pelanggan — instalasi dan troubleshooting perangkat keamanan Check Point, Juniper, Cisco, Blue Coat, dan HP TippingPoint.",
+    icon: "/images/busines.png",
   },
 ]
 

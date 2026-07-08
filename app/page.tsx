@@ -5,6 +5,7 @@ import { ServicesSection } from "@/components/services-section"
 import { AboutSection } from "@/components/about-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { ExperienceSection } from "@/components/experience-section"
+import { ExecutiveDeskSection } from "@/components/executive-desk-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ArticlesSection } from "@/components/articles-section"
 import { Footer } from "@/components/footer"
@@ -28,6 +29,9 @@ export default function Home() {
       </div>
       <div id="experience">
         <ExperienceSection />
+      </div>
+      <div id="journey">
+        <ExecutiveDeskSection />
       </div>
       <TestimonialsSection />
       <ArticlesSection />
